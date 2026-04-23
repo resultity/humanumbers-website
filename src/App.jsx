@@ -463,7 +463,7 @@ function App() {
         <div className="absolute bottom-[-5rem] left-1/3 h-80 w-80 rounded-full bg-[#2d2416]/30 blur-3xl" />
       </div>
 
-      <main className="relative mx-auto w-full max-w-[1440px] px-6 py-8 md:px-12 md:py-10">
+      <main className="site-shell relative mx-auto w-full max-w-[1440px] px-6 py-8 md:px-12 md:py-10">
         <nav className="top-nav sticky top-8 z-50 mb-16" aria-label="Primary">
           <div className="top-nav-track">
             {navItems.map((item) => (
@@ -478,10 +478,10 @@ function App() {
           </div>
         </nav>
 
-        <header className="mb-14 text-center md:text-left">
-          <h1 className="font-display text-[clamp(3.6rem,9vw,7.4rem)] leading-[0.88] tracking-[-0.05em] text-white">Humanumbers</h1>
-          <p className="mt-4 font-display text-[clamp(1.5rem,4vw,3rem)] leading-[0.96] tracking-[-0.03em] text-white/88">Numeric language that sounds human</p>
-          <p className="mt-5 max-w-4xl text-lg leading-relaxed text-white/68">
+        <header className="hero-header mb-14 text-center md:text-left">
+          <h1 className="hero-title font-display text-[clamp(3.6rem,9vw,7.4rem)] leading-[0.88] tracking-[-0.05em] text-white">Humanumbers</h1>
+          <p className="hero-subtitle mt-4 font-display text-[clamp(1.5rem,4vw,3rem)] leading-[0.96] tracking-[-0.03em] text-white/88">Numeric language that sounds human</p>
+          <p className="hero-copy mt-5 max-w-4xl text-lg leading-relaxed text-white/68">
             A dictionary-driven tool that turns rigid numeric responses into clearer, more natural speech.
           </p>
         </header>
@@ -508,24 +508,24 @@ function App() {
                   </div>
                 ) : null}
 
-                <div className="flex items-center gap-3 rounded-[24px] border border-white/10 bg-[#0f141c]/88 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                <div className="demo-input-row flex items-center gap-3 rounded-[24px] border border-white/10 bg-[#0f141c]/88 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                   <input
                     value={inputText}
                     onChange={(event) => setInputText(event.target.value)}
                     placeholder="Enter value or phrase..."
-                    className="h-14 w-full rounded-2xl bg-transparent px-4 text-[17px] text-white outline-none placeholder:text-white/35"
+                    className="demo-input-field h-14 w-full rounded-2xl bg-transparent px-4 text-[17px] text-white outline-none placeholder:text-white/35"
                   />
                   <button
                     type="submit"
                     disabled={loading || !inputText.trim()}
-                    className="h-14 shrink-0 rounded-2xl bg-brass px-7 text-base font-semibold text-[#1a1207] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45"
+                    className="demo-action-btn demo-primary-btn h-14 shrink-0 rounded-2xl bg-brass px-7 text-base font-semibold text-[#1a1207] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45"
                   >
                     {loading ? 'Going...' : 'Go'}
                   </button>
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="h-14 shrink-0 rounded-2xl border border-white/15 bg-[#131b27] px-5 text-base font-semibold text-white/78 transition hover:border-white/35 hover:text-white"
+                    className="demo-action-btn demo-secondary-btn h-14 shrink-0 rounded-2xl border border-white/15 bg-[#131b27] px-5 text-base font-semibold text-white/78 transition hover:border-white/35 hover:text-white"
                   >
                     Reset
                   </button>
@@ -578,14 +578,14 @@ function App() {
                         Control whether the service keeps the incoming unit family, leans into SI renderings, or chooses automatically.
                       </p>
                     </div>
-                    <div className="inline-flex rounded-2xl border border-white/10 bg-[#0f151f] p-1.5">
+                    <div className="system-preference-strip inline-flex rounded-2xl border border-white/10 bg-[#0f151f] p-1.5">
                       {systemPreferenceOptions.map((item) => (
                         <button
                           key={item.value}
                           type="button"
                           onClick={() => setSystemPreference(item.value)}
                           className={[
-                            'min-w-[132px] rounded-[14px] px-4 py-3 text-left transition',
+                            'system-preference-option min-w-[132px] rounded-[14px] px-4 py-3 text-left transition',
                             systemPreference === item.value
                               ? 'bg-brass text-[#1a1207] shadow-[0_10px_26px_rgba(215,173,89,0.24)]'
                               : 'text-white/72 hover:bg-white/5 hover:text-white',
@@ -651,8 +651,8 @@ function App() {
             </div>
 
             {activated || loading || error ? (
-              <section className="md:col-span-5 md:h-full" aria-live="polite">
-                <div className="flex h-full flex-col rounded-[34px] border border-white/10 bg-[#111a26]/86 p-5 shadow-luxe">
+              <section className="results-column md:col-span-5 md:h-full" aria-live="polite">
+                <div className="results-panel flex h-full flex-col rounded-[34px] border border-white/10 bg-[#111a26]/86 p-5 shadow-luxe">
                   <div className="flex justify-center">
                     <button
                       type="button"
